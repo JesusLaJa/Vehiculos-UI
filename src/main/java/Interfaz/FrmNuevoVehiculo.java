@@ -201,12 +201,23 @@ public class FrmNuevoVehiculo extends javax.swing.JFrame {
         vehiculo.setIdConcesionario(conce.getIdConcesionario());
         vehiculo.setColor(txtColor.getText());
         vehiculo.setSerie(txtSerie.getText());
-        
+
         try {
-            //Se llama al metodo
-            vehiculoDAO.registrar(vehiculo);
-            //se muestra el mensaje de que se agregó con exito
-            JOptionPane.showMessageDialog(null, "Registro Agregado!!!!");
+
+            int nModelo = vehiculoDAO.getExisteModeloConce(modelo.getIdModelo(), conce.getIdConcesionario(), txtSerie.getText());
+
+            if (nModelo < 1) {
+                
+                //Se llama al metodo
+                vehiculoDAO.registrar(vehiculo);
+                //se muestra el mensaje de que se agregó con exito
+                JOptionPane.showMessageDialog(null, "Registro Agregado!!!!");
+                
+            } else {
+                
+                JOptionPane.showMessageDialog(null, "Este modelo ya está registrado en este concesionario");
+            }
+
         } catch (Exception e) {
             //se muestra el mensaje en caso de que no se haya ejecutado correctamente
             JOptionPane.showMessageDialog(null, "Error al agregar el registro!!!!");

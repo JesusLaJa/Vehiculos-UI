@@ -311,6 +311,7 @@ public class FrmModelo extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Registro Actualizado con exito!!!");
             //muestro la tabla para que se actualicen los registros
             mostrarTablaModelos();
+
         } catch (Exception e) {
             //muestro el error
             System.err.println("Error: " + e.getMessage());

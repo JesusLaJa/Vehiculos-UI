@@ -95,6 +95,7 @@ public final class FrmConcesionario extends javax.swing.JFrame {
         txtEntidadFederativa = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
 
         popEliminar.setText("Eliminar");
         popEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -168,6 +169,13 @@ public final class FrmConcesionario extends javax.swing.JFrame {
             }
         });
 
+        jButton5.setText("Modelos");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -185,7 +193,9 @@ public final class FrmConcesionario extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton6))
+                                .addComponent(jButton6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton5))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel1)
@@ -213,7 +223,8 @@ public final class FrmConcesionario extends javax.swing.JFrame {
                     .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton3)
-                    .addComponent(jButton6))
+                    .addComponent(jButton6)
+                    .addComponent(jButton5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -337,11 +348,25 @@ public final class FrmConcesionario extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(FrmConcesionario.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         ventana.setVisible(true);
-        
+
         this.dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+
+        FrmConcesionarioModelo ventana = null;
+        try {
+            ventana = new FrmConcesionarioModelo();
+        } catch (SQLException ex) {
+            Logger.getLogger(FrmConcesionario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        ventana.setVisible(true);
+
+        this.dispose();
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -383,6 +408,7 @@ public final class FrmConcesionario extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

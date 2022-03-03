@@ -190,12 +190,19 @@ public class FrmNuevoModelo extends javax.swing.JFrame {
         modelo.setModelo(txtModelo.getText());
         modelo.setAnio(Integer.parseInt(txtAnio.getText()));
         modelo.setPrecio(Integer.parseInt(txtPrecio.getText()));
-        
+
         try {
-            //llamo al metodo
-            modeloDAO.registrar(modelo);
-            //muestro el mensaje de que se ejecuto correcto
-            JOptionPane.showMessageDialog(null, "Registro agregado!!!");
+            int pModelo = modeloDAO.getExisteModeloMarca(marca.getIdMarca(), txtModelo.getText(), Integer.parseInt(txtAnio.getText()));
+
+            if (pModelo < 1) {
+                //llamo al metodo
+                modeloDAO.registrar(modelo);
+                //muestro el mensaje de que se ejecuto correcto
+                JOptionPane.showMessageDialog(null, "Registro agregado!!!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Este Modelo ya está registrado en esta marca!!!");
+
+            }
 
         } catch (Exception e) {
             //muestro el mensaje de que se ejecuto correcto

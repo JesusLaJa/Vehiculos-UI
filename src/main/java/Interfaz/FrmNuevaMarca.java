@@ -125,10 +125,19 @@ public class FrmNuevaMarca extends javax.swing.JFrame {
         marca.setNombre(txtNombre.getText());
 
         try {
-            //llamo al metodo
-            marcaDAO.registrar(marca);
-            //muestro un mensaje en caso de que se haya ejecutado correctamente
-            JOptionPane.showMessageDialog(null, "Marca Añadida!!!!");
+            int pNombre = marcaDAO.getExisteMarca(txtNombre.getText());
+
+            if (pNombre < 1) {
+                //llamo al metodo
+                marcaDAO.registrar(marca);
+                //muestro un mensaje en caso de que se haya ejecutado correctamente
+                JOptionPane.showMessageDialog(null, "Marca Añadida!!!!");
+
+            } else {
+
+                JOptionPane.showMessageDialog(null, "Esta Marca ya existe en el registro");
+
+            }
 
         } catch (Exception e) {
             //muestro un mensaje en caso de que no se haya ejecutado correctamente
